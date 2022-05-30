@@ -23,8 +23,10 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection === 'paper' && computerSelection === 'rock') ||
         (playerSelection === 'scissors' && computerSelection === 'paper')) {
             return(won);
-    } else (playerSelection === computerSelection); {
-    return "Draw! Try again!";
+    } else if (playerSelection === computerSelection) {
+        return "Draw! Try again!";
+    } else {
+        return "Please enter either 'Rock', 'Paper', or 'Scissors'.";
     }
 }
 
