@@ -10,27 +10,27 @@ function playerChoice() {
 }
 /* Create function that takes user input and declares if game is won */
 function playRound(playerSelection, computerSelection) {
-    const won = `You won! ${playerSelection} beats ${computerSelection}!`;
-    const lost = `You lost! ${computerSelection} beats ${playerSelection}!`;
-    
+    console.log(`CPU: ${computerSelection}`);
+    console.log(`You: ${playerSelection}`);
+
+    let won = `You won! ${playerSelection} beats ${computerSelection}!`;
+    let lost = `You lost! ${computerSelection} beats ${playerSelection}!`;
+
     if (
-        (playerSelection === 'rock' && computerSelection === 'paper') ||
-        (playerSelection === 'paper' && computerSelection === 'scissors') ||
-        (playerSelection === 'scissors' && computerSelection === 'rock')) { 
-            return(lost);
+        (playerSelection == 'rock' && computerSelection == 'paper') ||
+        (playerSelection == 'paper' && computerSelection == 'scissors') ||
+        (playerSelection == 'scissors' && computerSelection == 'rock')) { 
+            return lost;
     } else if (
-        (playerSelection === 'rock' && computerSelection === 'scissors') ||
-        (playerSelection === 'paper' && computerSelection === 'rock') ||
-        (playerSelection === 'scissors' && computerSelection === 'paper')) {
-            return(won);
+        (playerSelection == 'rock' && computerSelection == 'scissors') ||
+        (playerSelection == 'paper' && computerSelection == 'rock') ||
+        (playerSelection == 'scissors' && computerSelection == 'paper')) {
+            return won;
     } else if (playerSelection === computerSelection) {
-        return "Draw! Try again!";
+        return "Draw, try again.";
     } else {
         return "Please enter either 'Rock', 'Paper', or 'Scissors'.";
     }
 }
 
-const computerSelection = computerPlay();
-const playerSelection = playerChoice();
-console.log(computerSelection);
-console.log(playRound(playerSelection, computerSelection));
+console.log(playRound(playerChoice(), computerPlay()));
