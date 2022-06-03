@@ -32,19 +32,24 @@ function playRound(playerSelection, computerSelection) {
         console.log("Draw, try again.");
     } else {
         console.log("Please enter either 'Rock', 'Paper', or 'Scissors'.");
+        return 3;
     }
 }
-// game() calls scoreKeep (playRound) 5 times and keeps score. Find way to incorporate string.
+// Calls scoreKeep (playRound) 5 times and keeps score.
 function game() {
     let playerScore = 0;
     let computerScore = 0;
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 5; i++) {
         let scoreKeep = playRound(playerChoice(), computerPlay());
         if (scoreKeep == 1) {
             computerScore = computerScore + 1;
         } else if (scoreKeep == 2) {
             playerScore = playerScore + 1;
+        } else if (scoreKeep == 3) {
+            i--;
+        } else {
+            i--;
         }
         console.log(`The score is now Player: ${playerScore} CPU: ${computerScore}`);
         if (playerScore == 3) {
