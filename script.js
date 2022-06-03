@@ -20,17 +20,34 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection == 'rock' && computerSelection == 'paper') ||
         (playerSelection == 'paper' && computerSelection == 'scissors') ||
         (playerSelection == 'scissors' && computerSelection == 'rock')) { 
-            return lost;
+            console.log(lost);
+            return 1;
     } else if (
         (playerSelection == 'rock' && computerSelection == 'scissors') ||
         (playerSelection == 'paper' && computerSelection == 'rock') ||
         (playerSelection == 'scissors' && computerSelection == 'paper')) {
-            return won;
+            console.log(won);
+            return 2;
     } else if (playerSelection === computerSelection) {
-        return "Draw, try again.";
+        console.log("Draw, try again.");
     } else {
-        return "Please enter either 'Rock', 'Paper', or 'Scissors'.";
+        console.log("Please enter either 'Rock', 'Paper', or 'Scissors'.");
     }
 }
+// game() calls scoreKeep (playRound) 5 times and keeps score. Find way to incorporate string.
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
 
-console.log(playRound(playerChoice(), computerPlay()));
+    for (let i = 0; i < 5; i++) {
+        let scoreKeep = playRound(playerChoice(), computerPlay());
+        if (scoreKeep == 1) {
+            computerScore = computerScore + 1;
+        } else if (scoreKeep == 2) {
+            playerScore = playerScore + 1;
+        }
+        console.log(`The score is now Player: ${playerScore} CPU: ${computerScore}`);
+    }
+    return playerScore;
+}
+console.log(game());
