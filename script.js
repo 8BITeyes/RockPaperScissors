@@ -48,6 +48,12 @@ function game() {
         }
         console.log(`The score is now Player: ${playerScore} CPU: ${computerScore}`);
     }
-    return playerScore;
+    if (playerScore == 3) {
+        return `Congrats! You win!`;
+    } else if (computerScore == 3) {
+        return `Too bad! You lose!`;
+    } else {
+        return `Game over! Final score is Player: ${playerScore} CPU: ${computerScore}`;
+    }
 }
 console.log(game());
