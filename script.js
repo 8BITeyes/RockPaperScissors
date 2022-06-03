@@ -10,11 +10,11 @@ function playerChoice() {
 }
 /* Create function that takes user input and declares if game is won */
 function playRound(playerSelection, computerSelection) {
-    console.log(`CPU: ${computerSelection}`);
-    console.log(`You: ${playerSelection}`);
+    console.log(`CPU: ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`);
+    console.log(`You: ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`);
 
-    let won = `You won! ${playerSelection} beats ${computerSelection}!`;
-    let lost = `You lost! ${computerSelection} beats ${playerSelection}!`;
+    let won = `You won! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}!`;
+    let lost = `You lost! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}!`;
 
     if (
         (playerSelection == 'rock' && computerSelection == 'paper') ||
@@ -39,7 +39,7 @@ function game() {
     let playerScore = 0;
     let computerScore = 0;
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 10; i++) {
         let scoreKeep = playRound(playerChoice(), computerPlay());
         if (scoreKeep == 1) {
             computerScore = computerScore + 1;
@@ -47,13 +47,12 @@ function game() {
             playerScore = playerScore + 1;
         }
         console.log(`The score is now Player: ${playerScore} CPU: ${computerScore}`);
+        if (playerScore == 3) {
+            return `Congrats! You win!`;
+        } else if (computerScore == 3) {
+            return `Too bad! You lose!`;
+        }
     }
-    if (playerScore == 3) {
-        return `Congrats! You win!`;
-    } else if (computerScore == 3) {
-        return `Too bad! You lose!`;
-    } else {
-        return `Game over! Final score is Player: ${playerScore} CPU: ${computerScore}`;
-    }
+    return `Game over! Final score is Player: ${playerScore} CPU: ${computerScore}`;
 }
 console.log(game());
