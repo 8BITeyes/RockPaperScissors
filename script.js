@@ -36,7 +36,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 // Calls scoreKeep (playRound) 5 times and keeps score.
-function game() {
+/*function game() {
     let playerScore = 0;
     let computerScore = 0;
 
@@ -59,5 +59,10 @@ function game() {
         }
     }
     return `Game over! Final score is Player: ${playerScore} CPU: ${computerScore}`;
-}
-console.log(game());
+}*/
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        playRound(button.id, computerPlay());
+    });
+});
