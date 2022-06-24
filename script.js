@@ -17,15 +17,15 @@ function playRound(playerSelection, computerSelection) {
     let lost = `You lost! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}!`;
 
     if (
-        (playerSelection == 'rock' && computerSelection == 'paper') ||
-        (playerSelection == 'paper' && computerSelection == 'scissors') ||
-        (playerSelection == 'scissors' && computerSelection == 'rock')) { 
+        (playerSelection === 'rock' && computerSelection === 'paper') ||
+        (playerSelection === 'paper' && computerSelection === 'scissors') ||
+        (playerSelection === 'scissors' && computerSelection === 'rock')) { 
             console.log(lost);
             return 1;
     } else if (
-        (playerSelection == 'rock' && computerSelection == 'scissors') ||
-        (playerSelection == 'paper' && computerSelection == 'rock') ||
-        (playerSelection == 'scissors' && computerSelection == 'paper')) {
+        (playerSelection === 'rock' && computerSelection === 'scissors') ||
+        (playerSelection === 'paper' && computerSelection === 'rock') ||
+        (playerSelection === 'scissors' && computerSelection === 'paper')) {
             console.log(won);
             return 2;
     } else if (playerSelection === computerSelection) {
@@ -42,19 +42,19 @@ function game() {
 
     for (let i = 0; i < 5; i++) {
         let scoreKeep = playRound(playerChoice(), computerPlay());
-        if (scoreKeep == 1) {
+        if (scoreKeep === 1) {
             computerScore = computerScore + 1;
-        } else if (scoreKeep == 2) {
+        } else if (scoreKeep === 2) {
             playerScore = playerScore + 1;
-        } else if (scoreKeep == 3) {
+        } else if (scoreKeep === 3) {
             i--;
         } else {
             i--;
         }
         console.log(`The score is now Player: ${playerScore} CPU: ${computerScore}`);
-        if (playerScore == 3) {
+        if (playerScore === 3) {
             return `Congrats! You win!`;
-        } else if (computerScore == 3) {
+        } else if (computerScore === 3) {
             return `Too bad! You lose!`;
         }
     }
