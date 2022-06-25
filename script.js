@@ -20,13 +20,13 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection === 'rock' && computerSelection === 'paper') ||
         (playerSelection === 'paper' && computerSelection === 'scissors') ||
         (playerSelection === 'scissors' && computerSelection === 'rock')) { 
-            console.log(lost);
+            results.textContent = (lost);
             return 1;
     } else if (
         (playerSelection === 'rock' && computerSelection === 'scissors') ||
         (playerSelection === 'paper' && computerSelection === 'rock') ||
         (playerSelection === 'scissors' && computerSelection === 'paper')) {
-            console.log(won);
+            results.textContent = (won);
             return 2;
     } else if (playerSelection === computerSelection) {
         results.textContent = "Draw, try again.";
